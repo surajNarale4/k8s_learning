@@ -1,0 +1,795 @@
+PS C:\Users\Admin\Desktop\k8s> kubectl apply -f my-pod.yml
+error: error validating "my-pod.yml": error validating data: failed to download openapi: Get "https://127.0.0.1:50181/openapi/v2?timeout=32s": dial tcp 127.0.0.1:50181: connectex: No connection could be made because the target machine actively refused it.; if you choose to ignore these errors, turn validation off with --validate=false
+PS C:\Users\Admin\Desktop\k8s> minicube start
+minicube : The term 'minicube' is not recognized as the name of a cmdlet, function, script file, or operable program. 
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ minicube start
++ ~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (minicube:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+PS C:\Users\Admin\Desktop\k8s> minikube start
+😄  minikube v1.38.1 on Microsoft Windows 11 Pro 25H2
+🆕  Kubernetes 1.35.1 is now available. If you would like to upgrade, specify: --kubernetes-version=v1.35.1
+✨  Using the docker driver based on existing profile
+👍  Starting "minikube" primary control-plane node in "minikube" cluster
+🚜  Pulling base image v0.0.50 ...
+🔄  Restarting existing docker container for "minikube" ... 
+❗  Image was not built for the current minikube version. To resolve this you can delete and recreate your minikube cluster using the latest images. Expected minikube version: v1.33.1 -> Actual minikube version: v1.38.1
+🐳  Preparing Kubernetes v1.30.0 on Docker 26.1.1 ... 
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Enabled addons: storage-provisioner, default-storageclass
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+PS C:\Users\Admin\Desktop\k8s> kubectl apply -f my-pod.yml
+pod/nginx-pod created
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods
+NAME        READY   STATUS    RESTARTS      AGE
+ng-nc       1/1     Running   1 (88s ago)   29h
+nginx-pod   1/1     Running   0             11s
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods -wide
+error: unknown shorthand flag: 'i' in -ide
+See 'kubectl get --help' for usage.
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods -o   
+error: flag needs an argument: 'o' in -o
+See 'kubectl get --help' for usage.
+PS C:\Users\Admin\Desktop\k8s> kubectl describe pod nginx-pod
+Name:             nginx-pod
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Tue, 21 Jul 2026 08:25:12 +0530
+Labels:           app.kubernetes.io/name=myapp
+                  env=dev
+                  name=myapp
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.12
+IPs:
+  IP:  10.244.0.12
+Containers:
+  my-nginx-container:
+    Container ID:   docker://64bd5dcf2ee910c8148f00bc0bdd5a0181b556938b5fbc1e455f05931489ca4a
+    Image:          nginx:latest
+    Image ID:       docker-pullable://nginx@sha256:5a88c9c45479443d7be2eadc894b4ed0a9801bae03d97a5760ae13b5c2005942
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Tue, 21 Jul 2026 08:25:16 +0530
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     500m
+      memory:  128Mi
+    Requests:
+      cpu:        500m
+      memory:     128Mi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-t5wqm (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-t5wqm:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   Guaranteed
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  82s   default-scheduler  Successfully assigned default/nginx-pod to minikube
+  Normal  Pulling    81s   kubelet            Pulling image "nginx:latest"
+  Normal  Pulled     79s   kubelet            Successfully pulled image "nginx:latest" in 1.992s (1.992s including waiting). Image size: 161327548 bytes.
+  Normal  Created    79s   kubelet            Created container my-nginx-container
+  Normal  Started    79s   kubelet            Started container my-nginx-container
+PS C:\Users\Admin\Desktop\k8s> git add my-pod.yml
+PS C:\Users\Admin\Desktop\k8s> git commit -m "created pods config yml file"
+[main 4ee2200] created pods config yml file
+ 1 file changed, 18 insertions(+)
+PS C:\Users\Admin\Desktop\k8s> git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 435 bytes | 87.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/surajNarale4/k8s_learning.git
+   65245a7..4ee2200  main -> main
+PS C:\Users\Admin\Desktop\k8s> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+                               k  
+k : The term 'k' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ k
++ ~
+    + CategoryInfo          : ObjectNotFound: (k:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+PS C:\Users\Admin\Desktop\k8s> 
+PS C:\Users\Admin\Desktop\k8s> 
+PS C:\Users\Admin\Desktop\k8s> 
+PS C:\Users\Admin\Desktop\k8s> kubectl apply -f .\my-replicaset.yml
+replicaset.apps/myreplicaset created
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods
+NAME                 READY   STATUS              RESTARTS      AGE
+myreplicaset-jt46p   0/1     ContainerCreating   0             10s
+myreplicaset-n8lx2   0/1     ContainerCreating   0             10s
+myreplicaset-wh2ww   1/1     Running             0             10s
+ng-nc                1/1     Running             1 (14m ago)   29h
+nginx-pod            1/1     Running             0             13m
+PS C:\Users\Admin\Desktop\k8s> kubectl delete pod nginx-pod 
+pod "nginx-pod" deleted
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods             
+NAME                 READY   STATUS    RESTARTS      AGE
+myreplicaset-jt46p   1/1     Running   0             38s
+myreplicaset-n8lx2   1/1     Running   0             38s
+myreplicaset-wh2ww   1/1     Running   0             38s
+ng-nc                1/1     Running   1 (14m ago)   29h
+PS C:\Users\Admin\Desktop\k8s> kubectl delete pod ng-nc     
+pod "ng-nc" deleted
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods             
+NAME                 READY   STATUS    RESTARTS   AGE
+myreplicaset-jt46p   1/1     Running   0          62s
+myreplicaset-n8lx2   1/1     Running   0          62s
+myreplicaset-wh2ww   1/1     Running   0          62s
+PS C:\Users\Admin\Desktop\k8s> kubectl delete pod --all
+pod "myreplicaset-jt46p" deleted
+pod "myreplicaset-n8lx2" deleted
+pod "myreplicaset-wh2ww" deleted
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods        
+NAME                 READY   STATUS    RESTARTS   AGE
+myreplicaset-2hglh   1/1     Running   0          15s
+myreplicaset-dpb5q   1/1     Running   0          15s
+myreplicaset-m4t4n   1/1     Running   0          15s
+PS C:\Users\Admin\Desktop\k8s> git add .
+PS C:\Users\Admin\Desktop\k8s> git commit -m "feat(replicaset): add ReplicaSet configuration and pod deletion demo(screenshot)"
+[main fa99558] feat(replicaset): add ReplicaSet configuration and pod deletion demo(screenshot)
+ 2 files changed, 26 insertions(+)
+ create mode 100644 my-replicaset.yml
+ create mode 100644 screenshots/replicaset.png
+PS C:\Users\Admin\Desktop\k8s> git push
+To https://github.com/surajNarale4/k8s_learning.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/surajNarale4/k8s_learning.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+PS C:\Users\Admin\Desktop\k8s> git pull
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 1.21 KiB | 82.00 KiB/s, done.
+From https://github.com/surajNarale4/k8s_learning
+   4ee2200..5c9ee57  main       -> origin/main
+Merge made by the 'ort' strategy.
+ README.md | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
+ create mode 100644 README.md
+PS C:\Users\Admin\Desktop\k8s> git push
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (7/7), 105.24 KiB | 11.69 MiB/s, done.
+Total 7 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/surajNarale4/k8s_learning.git
+   5c9ee57..2f836ea  main -> main
+PS C:\Users\Admin\Desktop\k8s> kubectl get rs
+NAME           DESIRED   CURRENT   READY   AGE
+myreplicaset   3         3         3       10m
+PS C:\Users\Admin\Desktop\k8s> kubectl create deploy my-deploy --replicas=3 --image=ngnix:latest
+deployment.apps/my-deploy created
+PS C:\Users\Admin\Desktop\k8s> kubectl get deploy                                               
+NAME        READY   UP-TO-DATE   AVAILABLE   AGE
+my-deploy   0/3     3            0           8s
+PS C:\Users\Admin\Desktop\k8s> kubectl get all   
+NAME                             READY   STATUS         RESTARTS   AGE
+pod/my-deploy-6dd799f9fc-7q2g5   0/1     ErrImagePull   0          13s
+pod/my-deploy-6dd799f9fc-lhxfb   0/1     ErrImagePull   0          14s
+pod/my-deploy-6dd799f9fc-wqzng   0/1     ErrImagePull   0          13s
+pod/myreplicaset-2hglh           1/1     Running        0          92m
+pod/myreplicaset-dpb5q           1/1     Running        0          92m
+pod/myreplicaset-m4t4n           1/1     Running        0          92m
+
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   2d9h
+
+NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/my-deploy   0/3     3            0           14s
+
+NAME                                   DESIRED   CURRENT   READY   AGE
+replicaset.apps/my-deploy-6dd799f9fc   3         3         0       14s
+replicaset.apps/myreplicaset           3         3         3       93m
+PS C:\Users\Admin\Desktop\k8s> kubectl describe my-deploy
+error: the server doesn't have a resource type "my-deploy"
+PS C:\Users\Admin\Desktop\k8s> kubectl describe deploy my-deploy
+Name:                   my-deploy
+Namespace:              default
+CreationTimestamp:      Tue, 21 Jul 2026 10:11:56 +0530
+Labels:                 app=my-deploy
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               app=my-deploy
+Replicas:               3 desired | 3 updated | 3 total | 0 available | 3 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=my-deploy
+  Containers:
+   ngnix:
+    Image:         ngnix:latest
+    Port:          <none>
+    Host Port:     <none>
+    Environment:   <none>
+    Mounts:        <none>
+  Volumes:         <none>
+  Node-Selectors:  <none>
+  Tolerations:     <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      False   MinimumReplicasUnavailable
+  Progressing    True    ReplicaSetUpdated
+OldReplicaSets:  <none>
+NewReplicaSet:   my-deploy-6dd799f9fc (3/3 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  54s   deployment-controller  Scaled up replica set my-deploy-6dd799f9fc to 3
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods
+NAME                         READY   STATUS         RESTARTS   AGE
+my-deploy-6dd799f9fc-7q2g5   0/1     ErrImagePull   0          78s
+my-deploy-6dd799f9fc-lhxfb   0/1     ErrImagePull   0          79s
+my-deploy-6dd799f9fc-wqzng   0/1     ErrImagePull   0          78s
+myreplicaset-2hglh           1/1     Running        0          93m
+myreplicaset-dpb5q           1/1     Running        0          93m
+myreplicaset-m4t4n           1/1     Running        0          93m
+PS C:\Users\Admin\Desktop\k8s> kubectl log my-deploy-6dd799f9fc-7q2g5 
+error: unknown command "log" for "kubectl"
+
+Did you mean this?
+        top
+        logs
+PS C:\Users\Admin\Desktop\k8s> kubectl logs my-deploy-6dd799f9fc-7q2g5 
+Error from server (BadRequest): container "ngnix" in pod "my-deploy-6dd799f9fc-7q2g5" is waiting to start: trying and failing to pull image
+PS C:\Users\Admin\Desktop\k8s> kubectl delete deploy my-deploy
+deployment.apps "my-deploy" deleted
+PS C:\Users\Admin\Desktop\k8s> kubectl create deploy my-deploy --replicas=3 --image=nginx:latest
+deployment.apps/my-deploy created
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods                                                 
+NAME                         READY   STATUS              RESTARTS   AGE
+my-deploy-6798b45bbf-24z5m   0/1     ContainerCreating   0          5s
+my-deploy-6798b45bbf-485wq   0/1     ContainerCreating   0          5s
+my-deploy-6798b45bbf-wzgc8   1/1     Running             0          5s
+myreplicaset-2hglh           1/1     Running             0          95m
+myreplicaset-dpb5q           1/1     Running             0          95m
+myreplicaset-m4t4n           1/1     Running             0          95m
+PS C:\Users\Admin\Desktop\k8s> kubectl get deploy -o wide
+NAME        READY   UP-TO-DATE   AVAILABLE   AGE     CONTAINERS   IMAGES         SELECTOR
+my-deploy   3/3     3            3           5m41s   nginx        nginx:latest   app=my-deploy
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods -o wide  
+NAME                         READY   STATUS    RESTARTS   AGE     IP            NODE       NOMINATED NODE   READINESS GATES
+my-deploy-6798b45bbf-24z5m   1/1     Running   0          5m48s   10.244.0.24   minikube   <none>           <none>
+my-deploy-6798b45bbf-485wq   1/1     Running   0          5m48s   10.244.0.23   minikube   <none>           <none>
+my-deploy-6798b45bbf-wzgc8   1/1     Running   0          5m48s   10.244.0.22   minikube   <none>           <none>
+myreplicaset-2hglh           1/1     Running   0          100m    10.244.0.16   minikube   <none>           <none>
+myreplicaset-dpb5q           1/1     Running   0          100m    10.244.0.17   minikube   <none>           <none>
+myreplicaset-m4t4n           1/1     Running   0          100m    10.244.0.18   minikube   <none>           <none>
+PS C:\Users\Admin\Desktop\k8s> 
+PS C:\Users\Admin\Desktop\k8s> 
+PS C:\Users\Admin\Desktop\k8s> kubectl exec -it my-deploy-6dd799f9fc-7q2g5 --bash
+error: unknown flag: --bash
+See 'kubectl exec --help' for usage.
+PS C:\Users\Admin\Desktop\k8s> kubectl exec -it my-deploy-6dd799f9fc-7q2g5 -- bash
+Error from server (NotFound): pods "my-deploy-6dd799f9fc-7q2g5" not found
+PS C:\Users\Admin\Desktop\k8s> kubectl exec -it my-deploy-6798b45bbf-24z5m  -- bash
+root@my-deploy-6798b45bbf-24z5m:/# curl localhost
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, nginx is successfully installed and working.
+Further configuration is required for the web server, reverse proxy, 
+API gateway, load balancer, content cache, or other features.</p>
+
+<p>For online documentation and support please refer to
+<a href="https://nginx.org/">nginx.org</a>.<br/>
+To engage with the community please visit
+<a href="https://community.nginx.org/">community.nginx.org</a>.<br/>
+For enterprise grade support, professional services, additional 
+security features and capabilities please refer to
+<a href="https://f5.com/nginx">f5.com/nginx</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+root@my-deploy-6798b45bbf-24z5m:/# 
+root@my-deploy-6798b45bbf-24z5m:/# 
+root@my-deploy-6798b45bbf-24z5m:/# 
+root@my-deploy-6798b45bbf-24z5m:/# curl  10.244.0.23 
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, nginx is successfully installed and working.
+Further configuration is required for the web server, reverse proxy, 
+API gateway, load balancer, content cache, or other features.</p>
+
+<p>For online documentation and support please refer to
+<a href="https://nginx.org/">nginx.org</a>.<br/>
+To engage with the community please visit
+<a href="https://community.nginx.org/">community.nginx.org</a>.<br/>
+For enterprise grade support, professional services, additional 
+security features and capabilities please refer to
+<a href="https://f5.com/nginx">f5.com/nginx</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+root@my-deploy-6798b45bbf-24z5m:/# ^C
+root@my-deploy-6798b45bbf-24z5m:/# ^C
+root@my-deploy-6798b45bbf-24z5m:/# ^C
+root@my-deploy-6798b45bbf-24z5m:/# ^C
+root@my-deploy-6798b45bbf-24z5m:/# 
+PS C:\Users\Admin\Desktop\k8s> kubectl get deploy
+NAME        READY   UP-TO-DATE   AVAILABLE   AGE
+my-deploy   3/3     3            3           26m
+PS C:\Users\Admin\Desktop\k8s> kubectl describe deploy 
+Name:                   my-deploy
+Namespace:              default
+CreationTimestamp:      Tue, 21 Jul 2026 10:14:39 +0530
+Labels:                 app=my-deploy
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               app=my-deploy
+Replicas:               3 desired | 3 updated | 3 total | 3 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=my-deploy
+  Containers:
+   nginx:
+    Image:         nginx:latest
+    Port:          <none>
+    Host Port:     <none>
+    Environment:   <none>
+    Mounts:        <none>
+  Volumes:         <none>
+  Node-Selectors:  <none>
+  Tolerations:     <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    NewReplicaSetAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   my-deploy-6798b45bbf (3/3 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  26m   deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 3
+PS C:\Users\Admin\Desktop\k8s> kubectl scale --replicas =2 
+error: invalid argument "=2" for "--replicas" flag: strconv.ParseInt: parsing "=2": invalid syntax
+See 'kubectl scale --help' for usage.
+PS C:\Users\Admin\Desktop\k8s> kubectl scale --replicas=2  
+error: You must provide one or more resources by argument or filename.
+Example resource specifications include:
+   '-f rsrc.yaml'
+   '--filename=rsrc.json'
+   '<resource> <name>'
+   '<resource>'
+PS C:\Users\Admin\Desktop\k8s> kubectl scale deploy my-deploy --replicas=2 
+deployment.apps/my-deploy scaled
+PS C:\Users\Admin\Desktop\k8s> kubectl get deploy                          
+NAME        READY   UP-TO-DATE   AVAILABLE   AGE
+my-deploy   2/2     2            2           27m
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods  
+NAME                         READY   STATUS    RESTARTS   AGE
+my-deploy-6798b45bbf-24z5m   1/1     Running   0          27m
+my-deploy-6798b45bbf-485wq   1/1     Running   0          27m
+myreplicaset-2hglh           1/1     Running   0          123m
+myreplicaset-dpb5q           1/1     Running   0          123m
+myreplicaset-m4t4n           1/1     Running   0          123m
+PS C:\Users\Admin\Desktop\k8s> kubectl scale deploy my-deploy --replicas=4 
+deployment.apps/my-deploy scaled
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods                           
+NAME                         READY   STATUS              RESTARTS   AGE
+my-deploy-6798b45bbf-24z5m   1/1     Running             0          28m
+my-deploy-6798b45bbf-485wq   1/1     Running             0          28m
+my-deploy-6798b45bbf-swvx6   0/1     ContainerCreating   0          3s
+my-deploy-6798b45bbf-xbvdr   0/1     ContainerCreating   0          3s
+myreplicaset-2hglh           1/1     Running             0          123m
+myreplicaset-dpb5q           1/1     Running             0          123m
+myreplicaset-m4t4n           1/1     Running             0          123m
+PS C:\Users\Admin\Desktop\k8s> kubectl scale deploy my-deploy --replicas=1
+deployment.apps/my-deploy scaled
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods                           
+NAME                         READY   STATUS    RESTARTS   AGE
+my-deploy-6798b45bbf-24z5m   1/1     Running   0          28m
+myreplicaset-2hglh           1/1     Running   0          123m
+myreplicaset-dpb5q           1/1     Running   0          123m
+myreplicaset-m4t4n           1/1     Running   0          123m
+PS C:\Users\Admin\Desktop\k8s> kubectl delete replicaset --al
+error: unknown flag: --al
+See 'kubectl delete --help' for usage.
+PS C:\Users\Admin\Desktop\k8s> kubectl delete replicaset --all
+replicaset.apps "my-deploy-6798b45bbf" deleted
+replicaset.apps "myreplicaset" deleted
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods               
+NAME                         READY   STATUS    RESTARTS   AGE
+my-deploy-6798b45bbf-29q65   1/1     Running   0          10s
+PS C:\Users\Admin\Desktop\k8s> kubectl scale deploy my-deploy --replicas=3
+deployment.apps/my-deploy scaled
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods                           
+NAME                         READY   STATUS              RESTARTS   AGE
+my-deploy-6798b45bbf-29q65   1/1     Running             0          17s
+my-deploy-6798b45bbf-cz8dq   0/1     ContainerCreating   0          1s
+my-deploy-6798b45bbf-k6vnh   0/1     ContainerCreating   0          1s
+PS C:\Users\Admin\Desktop\k8s> kubectl set image deploye my-deploy --image=ubantu
+error: unknown flag: --image
+See 'kubectl set image --help' for usage.
+PS C:\Users\Admin\Desktop\k8s> kubectl set image deploye my-deploy --image=ubantu
+error: unknown flag: --image
+See 'kubectl set image --help' for usage.
+PS C:\Users\Admin\Desktop\k8s> kubectl set image --help
+Update existing container image(s) of resources.
+
+ Possible resources include (case insensitive):
+
+        pod (po), replicationcontroller (rc), deployment (deploy), daemonset (ds), statefulset (sts), cronjob (cj),
+replicaset (rs)
+
+Examples:
+  # Set a deployment's nginx container image to 'nginx:1.9.1', and its busybox container image to 'busybox'
+  kubectl set image deployment/nginx busybox=busybox nginx=nginx:1.9.1
+  
+  # Update all deployments' and rc's nginx container's image to 'nginx:1.9.1'
+  kubectl set image deployments,rc nginx=nginx:1.9.1 --all
+  
+  # Update image of all containers of daemonset abc to 'nginx:1.9.1'
+  kubectl set image daemonset abc *=nginx:1.9.1
+  
+  # Print result (in yaml format) of updating nginx container image from local file, without hitting the server
+  kubectl set image -f path/to/file.yaml nginx=nginx:1.9.1 --local -o yaml
+
+Options:
+    --all=false:
+        Select all resources, in the namespace of the specified resource types
+
+    --allow-missing-template-keys=true:
+        If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to
+        golang and jsonpath output formats.
+
+    --dry-run='none':
+        Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without
+        sending it. If server strategy, submit server-side request without persisting the resource.
+
+    --field-manager='kubectl-set':
+        Name of the manager used to track field ownership.
+
+    -f, --filename=[]:
+        Filename, directory, or URL to files identifying the resource to get from a server.
+
+    -k, --kustomize='':
+        Process the kustomization directory. This flag can't be used together with -f or -R.
+
+    --local=false:
+        If true, set image will NOT contact api-server but run locally.
+
+    -o, --output='':
+        Output format. One of: (json, yaml, name, go-template, go-template-file, template, templatefile, jsonpath,
+        jsonpath-as-json, jsonpath-file).
+
+    -R, --recursive=false:
+        Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests
+        organized within the same directory.
+
+    -l, --selector='':
+        Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2). Matching
+        objects must satisfy all of the specified label constraints.
+
+    --show-managed-fields=false:
+        If true, keep the managedFields when printing objects in JSON or YAML format.
+
+    --template='':
+        Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format
+        is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+
+Usage:
+  kubectl set image (-f FILENAME | TYPE NAME) CONTAINER_NAME_1=CONTAINER_IMAGE_1 ... CONTAINER_NAME_N=CONTAINER_IMAGE_N
+[options]
+
+Use "kubectl options" for a list of global command-line options (applies to all commands).
+PS C:\Users\Admin\Desktop\k8s> kubectl describe deploy                           
+Name:                   my-deploy
+Namespace:              default
+CreationTimestamp:      Tue, 21 Jul 2026 10:14:39 +0530
+Labels:                 app=my-deploy
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               app=my-deploy
+Replicas:               3 desired | 3 updated | 3 total | 3 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=my-deploy
+  Containers:
+   nginx:
+    Image:         nginx:latest
+    Port:          <none>
+    Host Port:     <none>
+    Environment:   <none>
+    Mounts:        <none>
+  Volumes:         <none>
+  Node-Selectors:  <none>
+  Tolerations:     <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Progressing    True    NewReplicaSetAvailable
+  Available      True    MinimumReplicasAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   my-deploy-6798b45bbf (3/3 replicas created)
+Events:
+  Type    Reason             Age    From                   Message
+  ----    ------             ----   ----                   -------
+  Normal  ScalingReplicaSet  31m    deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 3
+  Normal  ScalingReplicaSet  3m48s  deployment-controller  Scaled down replica set my-deploy-6798b45bbf to 2 from 3
+  Normal  ScalingReplicaSet  3m14s  deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 4 from 2
+  Normal  ScalingReplicaSet  3m2s   deployment-controller  Scaled down replica set my-deploy-6798b45bbf to 1 from 4
+  Normal  ScalingReplicaSet  2m39s  deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 1
+  Normal  ScalingReplicaSet  2m23s  deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 3 from 1
+PS C:\Users\Admin\Desktop\k8s> kubectl set image deploye/my-deploy  --ngnix=ubantu         
+error: unknown flag: --ngnix
+See 'kubectl set image --help' for usage.
+PS C:\Users\Admin\Desktop\k8s> kubectl set image deploye/my-deploy ngnix=ubantu   
+error: the server doesn't have a resource type "deploye"
+PS C:\Users\Admin\Desktop\k8s> kubectl set image  deployments/my-deploy ngnix=ubantu
+error: unable to find container named "ngnix"
+PS C:\Users\Admin\Desktop\k8s> kubectl describe deploy                              
+Name:                   my-deploy
+Namespace:              default
+CreationTimestamp:      Tue, 21 Jul 2026 10:14:39 +0530
+Labels:                 app=my-deploy
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               app=my-deploy
+Replicas:               3 desired | 3 updated | 3 total | 3 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=my-deploy
+  Containers:
+   nginx:
+    Image:         nginx:latest
+    Port:          <none>
+    Host Port:     <none>
+    Environment:   <none>
+    Mounts:        <none>
+  Volumes:         <none>
+  Node-Selectors:  <none>
+  Tolerations:     <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Progressing    True    NewReplicaSetAvailable
+  Available      True    MinimumReplicasAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   my-deploy-6798b45bbf (3/3 replicas created)
+Events:
+  Type    Reason             Age    From                   Message
+  ----    ------             ----   ----                   -------
+  Normal  ScalingReplicaSet  35m    deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 3
+  Normal  ScalingReplicaSet  8m11s  deployment-controller  Scaled down replica set my-deploy-6798b45bbf to 2 from 3
+  Normal  ScalingReplicaSet  7m37s  deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 4 from 2
+  Normal  ScalingReplicaSet  7m25s  deployment-controller  Scaled down replica set my-deploy-6798b45bbf to 1 from 4
+  Normal  ScalingReplicaSet  7m2s   deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 1
+  Normal  ScalingReplicaSet  6m46s  deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 3 from 1
+PS C:\Users\Admin\Desktop\k8s> kubectl describe my-deploy 
+error: the server doesn't have a resource type "my-deploy"
+PS C:\Users\Admin\Desktop\k8s> kubectl describe deploy my-deploy 
+Name:                   my-deploy
+Namespace:              default
+CreationTimestamp:      Tue, 21 Jul 2026 10:14:39 +0530
+Labels:                 app=my-deploy
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               app=my-deploy
+Replicas:               3 desired | 3 updated | 3 total | 3 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=my-deploy
+  Containers:
+   nginx:
+    Image:         nginx:latest
+    Port:          <none>
+    Host Port:     <none>
+    Environment:   <none>
+    Mounts:        <none>
+  Volumes:         <none>
+  Node-Selectors:  <none>
+  Tolerations:     <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Progressing    True    NewReplicaSetAvailable
+  Available      True    MinimumReplicasAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   my-deploy-6798b45bbf (3/3 replicas created)
+Events:
+  Type    Reason             Age    From                   Message
+  ----    ------             ----   ----                   -------
+  Normal  ScalingReplicaSet  36m    deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 3
+  Normal  ScalingReplicaSet  9m9s   deployment-controller  Scaled down replica set my-deploy-6798b45bbf to 2 from 3
+  Normal  ScalingReplicaSet  8m35s  deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 4 from 2
+  Normal  ScalingReplicaSet  8m23s  deployment-controller  Scaled down replica set my-deploy-6798b45bbf to 1 from 4
+  Normal  ScalingReplicaSet  8m     deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 1
+  Normal  ScalingReplicaSet  7m44s  deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 3 from 1
+PS C:\Users\Admin\Desktop\k8s> kubectl set image  deployments/my-deploy nginx=ubantu
+deployment.apps/my-deploy image updated
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods                                     
+NAME                         READY   STATUS         RESTARTS   AGE
+my-deploy-6798b45bbf-29q65   1/1     Running        0          8m26s
+my-deploy-6798b45bbf-cz8dq   1/1     Running        0          8m10s
+my-deploy-6798b45bbf-k6vnh   1/1     Running        0          8m10s
+my-deploy-8664cf84c9-92rwd   0/1     ErrImagePull   0          6s
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods --watch
+NAME                         READY   STATUS         RESTARTS   AGE
+my-deploy-6798b45bbf-29q65   1/1     Running        0          9m3s
+my-deploy-6798b45bbf-cz8dq   1/1     Running        0          8m47s
+my-deploy-6798b45bbf-k6vnh   1/1     Running        0          8m47s
+my-deploy-8664cf84c9-92rwd   0/1     ErrImagePull   0          43s
+my-deploy-8664cf84c9-92rwd   0/1     ImagePullBackOff   0          51s
+my-deploy-8664cf84c9-92rwd   0/1     ErrImagePull       0          71s
+my-deploy-8664cf84c9-92rwd   0/1     ImagePullBackOff   0          83s
+PS C:\Users\Admin\Desktop\k8s> ^C
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods        
+NAME                         READY   STATUS             RESTARTS   AGE
+my-deploy-6798b45bbf-29q65   1/1     Running            0          10m
+my-deploy-6798b45bbf-cz8dq   1/1     Running            0          9m45s
+my-deploy-6798b45bbf-k6vnh   1/1     Running            0          9m45s
+my-deploy-8664cf84c9-92rwd   0/1     ImagePullBackOff   0          101s
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods
+NAME                         READY   STATUS             RESTARTS   AGE
+my-deploy-6798b45bbf-29q65   1/1     Running            0          10m
+my-deploy-6798b45bbf-cz8dq   1/1     Running            0          9m55s
+my-deploy-6798b45bbf-k6vnh   1/1     Running            0          9m55s
+my-deploy-8664cf84c9-92rwd   0/1     ImagePullBackOff   0          111s
+PS C:\Users\Admin\Desktop\k8s> kubectl describe deploy my-deploy
+Name:                   my-deploy
+Namespace:              default
+CreationTimestamp:      Tue, 21 Jul 2026 10:14:39 +0530
+Labels:                 app=my-deploy
+Annotations:            deployment.kubernetes.io/revision: 2
+Selector:               app=my-deploy
+Replicas:               3 desired | 1 updated | 4 total | 3 available | 1 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=my-deploy
+  Containers:
+   nginx:
+    Image:         ubantu
+    Port:          <none>
+    Host Port:     <none>
+    Environment:   <none>
+    Mounts:        <none>
+  Volumes:         <none>
+  Node-Selectors:  <none>
+  Tolerations:     <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    ReplicaSetUpdated
+OldReplicaSets:  my-deploy-6798b45bbf (3/3 replicas created)
+NewReplicaSet:   my-deploy-8664cf84c9 (1/1 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  39m   deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 3
+  Normal  ScalingReplicaSet  11m   deployment-controller  Scaled down replica set my-deploy-6798b45bbf to 2 from 3
+  Normal  ScalingReplicaSet  10m   deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 4 from 2
+  Normal  ScalingReplicaSet  10m   deployment-controller  Scaled down replica set my-deploy-6798b45bbf to 1 from 4
+  Normal  ScalingReplicaSet  10m   deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 1
+  Normal  ScalingReplicaSet  10m   deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 3 from 1
+  Normal  ScalingReplicaSet  2m3s  deployment-controller  Scaled up replica set my-deploy-8664cf84c9 to 1
+PS C:\Users\Admin\Desktop\k8s> kubectl get deploy               
+NAME        READY   UP-TO-DATE   AVAILABLE   AGE
+my-deploy   3/3     1            3           39m
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods                 
+NAME                         READY   STATUS             RESTARTS   AGE
+my-deploy-6798b45bbf-29q65   1/1     Running            0          10m
+my-deploy-6798b45bbf-cz8dq   1/1     Running            0          10m
+my-deploy-6798b45bbf-k6vnh   1/1     Running            0          10m
+my-deploy-8664cf84c9-92rwd   0/1     ImagePullBackOff   0          2m24s
+PS C:\Users\Admin\Desktop\k8s> kubectl rollout deploy/my-deploy
+error: unknown command "deploy/my-deploy"
+See 'kubectl rollout -h' for help and examples
+PS C:\Users\Admin\Desktop\k8s> kubectl rollout history deploy/my-deploy
+deployment.apps/my-deploy 
+REVISION  CHANGE-CAUSE
+1         <none>
+2         <none>
+
+PS C:\Users\Admin\Desktop\k8s> kubectl rollout undo deploy/my-deploy   
+deployment.apps/my-deploy rolled back
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods                        
+NAME                         READY   STATUS    RESTARTS   AGE
+my-deploy-6798b45bbf-29q65   1/1     Running   0          12m
+my-deploy-6798b45bbf-cz8dq   1/1     Running   0          11m
+my-deploy-6798b45bbf-k6vnh   1/1     Running   0          11m
+PS C:\Users\Admin\Desktop\k8s> kubectl set image deploy/my-deploy ngnix=ubuntu
+error: unable to find container named "ngnix"
+PS C:\Users\Admin\Desktop\k8s> kubectl set image deploy/my-deploy ngnix=ubuntu
+error: unable to find container named "ngnix"
+PS C:\Users\Admin\Desktop\k8s> kubectl set image deploy/my-deploy nginx=ubuntu
+deployment.apps/my-deploy image updated
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods
+NAME                         READY   STATUS              RESTARTS   AGE
+my-deploy-6798b45bbf-29q65   1/1     Running             0          13m
+my-deploy-6798b45bbf-cz8dq   1/1     Running             0          13m
+my-deploy-6798b45bbf-k6vnh   1/1     Running             0          13m
+my-deploy-69dbd85f5f-bskgg   0/1     ContainerCreating   0          14s
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods --watch
+NAME                         READY   STATUS      RESTARTS   AGE
+my-deploy-6798b45bbf-29q65   1/1     Running     0          14m
+my-deploy-6798b45bbf-cz8dq   1/1     Running     0          13m
+my-deploy-6798b45bbf-k6vnh   1/1     Running     0          13m
+my-deploy-69dbd85f5f-bskgg   0/1     Completed   0          19s
+my-deploy-69dbd85f5f-bskgg   0/1     Completed   1 (3s ago)   21s
+my-deploy-69dbd85f5f-bskgg   0/1     CrashLoopBackOff   1 (2s ago)   22s
+my-deploy-69dbd85f5f-bskgg   0/1     Completed          2 (20s ago)   40s
+my-deploy-69dbd85f5f-bskgg   0/1     CrashLoopBackOff   2 (12s ago)   51s
+my-deploy-69dbd85f5f-bskgg   0/1     Completed          3 (28s ago)   67s
+my-deploy-69dbd85f5f-bskgg   0/1     CrashLoopBackOff   3 (16s ago)   82s
+PS C:\Users\Admin\Desktop\k8s> ^C
+PS C:\Users\Admin\Desktop\k8s> ^C
