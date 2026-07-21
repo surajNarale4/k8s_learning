@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myreplicaset
+  labels:
+    app: myapp
+    key: value
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      key: my-nginx
+  template:
+    metadata:
+      labels:
+        key: my-nginx
+    spec:
+      containers:
+        - name: myapp
+          image: nginx:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
