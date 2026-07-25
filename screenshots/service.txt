@@ -1,0 +1,230 @@
+    Environment:   <none>
+    Mounts:        <none>
+  Volumes:         <none>
+  Node-Selectors:  <none>
+  Tolerations:     <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    ReplicaSetUpdated
+OldReplicaSets:  my-deploy-6798b45bbf (3/3 replicas created)
+NewReplicaSet:   my-deploy-8664cf84c9 (1/1 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  39m   deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 3
+  Normal  ScalingReplicaSet  11m   deployment-controller  Scaled down replica set my-deploy-6798b45bbf to 2 from 3
+  Normal  ScalingReplicaSet  10m   deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 4 from 2
+  Normal  ScalingReplicaSet  10m   deployment-controller  Scaled down replica set my-deploy-6798b45bbf to 1 from 4
+  Normal  ScalingReplicaSet  10m   deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 1
+  Normal  ScalingReplicaSet  10m   deployment-controller  Scaled up replica set my-deploy-6798b45bbf to 3 from 1
+  Normal  ScalingReplicaSet  2m3s  deployment-controller  Scaled up replica set my-deploy-8664cf84c9 to 1
+PS C:\Users\Admin\Desktop\k8s> kubectl get deploy               
+NAME        READY   UP-TO-DATE   AVAILABLE   AGE
+my-deploy   3/3     1            3           39m
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods                 
+NAME                         READY   STATUS             RESTARTS   AGE
+my-deploy-6798b45bbf-29q65   1/1     Running            0          10m
+my-deploy-6798b45bbf-cz8dq   1/1     Running            0          10m
+my-deploy-6798b45bbf-k6vnh   1/1     Running            0          10m
+my-deploy-8664cf84c9-92rwd   0/kubectl set image deploy/my-deploy nginx=ubuntu
+deployment.apps/my-deploy image updatedrollout deploy/my-deploy
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods
+NAME                         READY   STATUS              RESTARTS   AGE
+my-deploy-6798b45bbf-29q65   1/1     Running             0          13m
+my-deploy-6798b45bbf-cz8dq   1/git add .ning             0          13m
+PS C:\Users\Admin\Desktop\k8s> git push ning             0          13m
+fatal: User cancelled dialog.0/1     ContainerCreating   0          14s
+PS C:\Users\Admin\Desktop\k8s> ^Cbectl get pods --watch
+PS C:\Users\Admin\Desktop\k8s> ^CY   STATUS      RESTARTS   AGE
+PS C:\Users\Admin\Desktop\k8s> git commit -m "txt: all commands added in txt file : specially for deployments "
+[main 657661c] txt: all commands added in txt file : specially for deployments
+ 1 file changed, 795 insertions(+)   Running     0          13m        
+ create mode 100644 screenshots/pods_replicaset_deployment.txts
+PS C:\Users\Admin\Desktop\k8s> minikube startd   1 (3s ago)   21s
+😄  minikube v1.38.1 on Microsoft Windows 11 Pro 25H2   1 (2s ago)   22s
+🆕  Kubernetes 1.35.1 is now available. If you would like to upgrade, specify: --kubernetes-version=v1.35.1
+✨  Using the docker driver based on existing profile   2 (12s ago)   51sbuntu
+👍  Starting "minikube" primarykubectl apply -f .\my-deployement.ymlsters
+deployment.apps/myapp created0 ...
+PS C:\Users\Admin\Desktop\k8s> kubectl get podsainer ... 
+NAME                         READY   STATUS             RESTARTS         AGEu can delete and recreate your minikube cluste
+my-deploy-6798b45bbf-29q65   1/1     Running            1 (3m36s ago)    43hkube version: v1.38.1
+my-deploy-6798b45bbf-cz8dq   1/1     Running            1 (3m36s ago)    43h
+my-deploy-6798b45bbf-k6vnh   1/1     Running            1 (3m36s ago)    43h
+my-deploy-69dbd85f5f-bskgg   0/1     CrashLoopBackOff   23 (3m57s ago)   42h
+myapp-74fc6db8b-rvh98        1/1     Running            0                9s
+myapp-74fc6db8b-tzssw        1/1     Running            0                9s namespace by default
+myapp-74fc6db8b-w57nh        1/1     Running            0                9s
+PS C:\Users\Admin\Desktop\k8s> kubectl delete --all
+error: at least one resource must be specified to use a selector
+PS C:\Users\Admin\Desktop\k8s> kubectl delete all --all
+pod "my-deploy-6798b45bbf-29q65" deleted
+pod "my-deploy-6798b45bbf-cz8dq" deleted
+pod "my-deploy-6798b45bbf-k6vnh" deleted
+pod "my-deploy-69dbd85f5f-bskgg" deleted
+pod "myapp-74fc6db8b-rvh98" deleted
+pod "myapp-74fc6db8b-tzssw" deleted
+pod "myapp-74fc6db8b-w57nh" deleted
+service "kubernetes" deleted
+deployment.apps "my-deploy" deleted
+deployment.apps "myapp" deleted
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods        
+NAME                         READY   STATUS        RESTARTS   AGE
+my-deploy-6798b45bbf-9gz7d   0/1     Terminating   0          13s
+my-deploy-6798b45bbf-kvvqt   0/1     Terminating   0          13s
+my-deploy-69dbd85f5f-wp6k2   0/1     Terminating   0          13s
+myapp-74fc6db8b-h5tz9        0/1     Terminating   0          11s
+myapp-74fc6db8b-jd9kc        0/1     Terminating   0          13s
+myapp-74fc6db8b-lpjfw        0/1     Terminating   0          11s
+PS C:\Users\Admin\Desktop\k8s> git add .\my-deployement.yml
+PS C:\Users\Admin\Desktop\k8s> git push
+fatal: User cancelled dialog.
+PS C:\Users\Admin\Desktop\k8s> ^C
+PS C:\Users\Admin\Desktop\k8s> git commit -m "deployement added with 3 replica "
+[main 1fe4eff] deployement added with 3 replica
+ 1 file changed, 23 insertions(+)
+ create mode 100644 my-deployement.yml
+PS C:\Users\Admin\Desktop\k8s> git push
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 488 bytes | 244.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/surajNarale4/k8s_learning.git
+   657661c..1fe4eff  main -> main
+PS C:\Users\Admin\Desktop\k8s> 
+ *  History restored 
+
+PS C:\Users\Admin\Desktop\k8s> minikube start
+😄  minikube v1.38.1 on Microsoft Windows 11 Pro 25H2
+🆕  Kubernetes 1.35.1 is now available. If you would like to upgrade, specify: --kubernetes-version=v1.35.1
+✨  Using the  driver based on existing profile
+
+❌  Exiting due to DRV_UNSUPPORTED_OS: The driver '' is not supported on windows/amd64
+
+PS C:\Users\Admin\Desktop\k8s> minikube start
+😄  minikube v1.38.1 on Microsoft Windows 11 Pro 25H2
+🆕  Kubernetes 1.35.1 is now available. If you would like to upgrade, specify: --kubernetes-version=v1.35.1
+✨  Using the docker driver based on existing profile
+👍  Starting "minikube" primary control-plane node in "minikube" cluster
+🚜  Pulling base image v0.0.50 ...
+🔄  Restarting existing docker container for "minikube" ... 
+❗  Image was not built for the current minikube version. To resolve this you can delete and recreate your minikube cluster using the latest images. Expected minikube version: v1.33.1 -> Actual minikube version: v1.38.1
+🐳  Preparing Kubernetes v1.30.0 on Docker 26.1.1 ... 
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Enabled addons: storage-provisioner, default-storageclass
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods
+No resources found in default namespace.
+PS C:\Users\Admin\Desktop\k8s> kubectl apply -f .\my-deployement.yml
+deployment.apps/myapp created
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods                     
+NAME                    READY   STATUS              RESTARTS   AGE
+myapp-74fc6db8b-2q8l9   0/1     ContainerCreating   0          5s
+myapp-74fc6db8b-shtft   0/1     ContainerCreating   0          5s
+myapp-74fc6db8b-v87wt   0/1     ContainerCreating   0          5s
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods,svc
+NAME                        READY   STATUS    RESTARTS   AGE
+pod/myapp-74fc6db8b-2q8l9   1/1     Running   0          13s
+pod/myapp-74fc6db8b-shtft   1/1     Running   0          13s
+pod/myapp-74fc6db8b-v87wt   1/1     Running   0          13s
+
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   2d18h
+PS C:\Users\Admin\Desktop\k8s> kubectl expose myapp --port=3000 --target=80
+error: unknown flag: --target
+See 'kubectl expose --help' for usage.
+PS C:\Users\Admin\Desktop\k8s> kubectl expose myapp --port=3000 --target-port=80
+error: the server doesn't have a resource type "myapp"
+PS C:\Users\Admin\Desktop\k8s> kubectl expose deploy myapp --port=3000 --target-port=80
+service/myapp exposed
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods,svc -o wide                            
+NAME                        READY   STATUS    RESTARTS   AGE     IP            NODE       NOMINATED NODE   READINESS GATES
+pod/myapp-74fc6db8b-2q8l9   1/1     Running   0          2m19s   10.244.0.50   minikube   <none>           <none>
+pod/myapp-74fc6db8b-shtft   1/1     Running   0          2m19s   10.244.0.51   minikube   <none>           <none>
+pod/myapp-74fc6db8b-v87wt   1/1     Running   0          2m19s   10.244.0.52   minikube   <none>           <none>
+
+NAME                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE     SELECTOR
+service/kubernetes   ClusterIP   10.96.0.1       <none>        443/TCP    2d18h   <none>
+service/myapp        ClusterIP   10.101.227.44   <none>        3000/TCP   12s     app=myapp
+PS C:\Users\Admin\Desktop\k8s> kubectl exec -it pod/myapp-74fc6db8b-2q8l9 -- bash
+root@myapp-74fc6db8b-2q8l9:/# curl ^C
+root@myapp-74fc6db8b-2q8l9:/# curl 10.101.227.44:3000
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, nginx is successfully installed and working.
+Further configuration is required for the web server, reverse proxy, 
+API gateway, load balancer, content cache, or other features.</p>
+
+<p>For online documentation and support please refer to
+<a href="https://nginx.org/">nginx.org</a>.<br/>
+To engage with the community please visit
+<a href="https://community.nginx.org/">community.nginx.org</a>.<br/>
+For enterprise grade support, professional services, additional 
+security features and capabilities please refer to
+<a href="https://f5.com/nginx">f5.com/nginx</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+root@myapp-74fc6db8b-2q8l9:/# 
+root@myapp-74fc6db8b-2q8l9:/# 
+root@myapp-74fc6db8b-2q8l9:/# kubectl expose deploy myapp --port=5000 --target-port=80 --type=NodePort
+bash: kubectl: command not found
+root@myapp-74fc6db8b-2q8l9:/#  
+PS C:\Users\Admin\Desktop\k8s> ^C                                                
+PS C:\Users\Admin\Desktop\k8s> kubectl expose deploy myapp --port=5000 --target-port=80 --type=NodePort
+Error from server (AlreadyExists): services "myapp" already exists
+PS C:\Users\Admin\Desktop\k8s> kubectl delete svc myapp
+service "myapp" deleted
+PS C:\Users\Admin\Desktop\k8s> kubectl expose deploy myapp --port=5000 --target-port=80 --type=NodePort
+service/myapp exposed
+PS C:\Users\Admin\Desktop\k8s> kubectl get pods,svc -o wide                                            
+NAME                        READY   STATUS    RESTARTS   AGE     IP            NODE       NOMINATED NODE   READINESS GATES
+pod/myapp-74fc6db8b-2q8l9   1/1     Running   0          7m54s   10.244.0.50   minikube   <none>           <none>
+pod/myapp-74fc6db8b-shtft   1/1     Running   0          7m54s   10.244.0.51   minikube   <none>           <none>
+pod/myapp-74fc6db8b-v87wt   1/1     Running   0          7m54s   10.244.0.52   minikube   <none>           <none>
+
+NAME                 TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE     SELECTOR
+service/kubernetes   ClusterIP   10.96.0.1      <none>        443/TCP          2d19h   <none>
+service/myapp        NodePort    10.97.60.169   <none>        5000:30283/TCP   6s      app=myapp
+PS C:\Users\Admin\Desktop\k8s> ^C
+PS C:\Users\Admin\Desktop\k8s> curl  10.97.60.169:5000
+curl : Unable to connect to the remote server
+At line:1 char:1
++ curl  10.97.60.169:5000
++ ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebExcep 
+   tion
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+ 
+PS C:\Users\Admin\Desktop\k8s> minikube service myapp
+┌───────────┬───────┬─────────────┬───────────────────────────┐
+│ NAMESPACE │ NAME  │ TARGET PORT │            URL            │
+├───────────┼───────┼─────────────┼───────────────────────────┤
+│ default   │ myapp │ 5000        │ http://192.168.49.2:30283 │
+└───────────┴───────┴─────────────┴───────────────────────────┘
+🔗  Starting tunnel for service myapp.
+┌───────────┬───────┬─────────────┬────────────────────────┐
+│ NAMESPACE │ NAME  │ TARGET PORT │          URL           │
+├───────────┼───────┼─────────────┼────────────────────────┤
+│ default   │ myapp │             │ http://127.0.0.1:61809 │
+└───────────┴───────┴─────────────┴────────────────────────┘
+🎉  Opening service default/myapp in default browser...
+❗  Because you are using a Docker driver on windows, the terminal needs to be open to run it.
+✋  Stopping tunnel for service myapp.
