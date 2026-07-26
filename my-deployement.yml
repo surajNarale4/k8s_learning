@@ -21,3 +21,13 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 80
+        volumeMounts:
+        - name: mypvc
+          mountPath: /app
+      volumes:
+      - name: mypvc
+        persistentVolumeClaim:
+          claimName: mypvc
+        
+
+
