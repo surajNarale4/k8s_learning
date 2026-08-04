@@ -16,3 +16,10 @@ spec:
         cpu: "500m"
     ports:
       - containerPort: 80
+    volumeMounts:
+      - name: mypvc
+        mountPath: /usr/share/nginx/html
+  volumes:
+    - name: mypvc
+      persistentVolumeClaim:
+        claimName: mypvc
